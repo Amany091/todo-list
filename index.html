@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html lang="en" data-theme="forest">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- themes -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.18.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+
+    <title>ToDo_App</title>
+  </head>
+  <body >
+    <div class="container shadow-lg d-flex">
+      <header>
+        <span class=" text-center mb-2 font-bold  text-md md:text-2xl text-rose-300 ">To_Do List</span>
+        <!-- dynamic alert -->
+        <div class="alertMsg w-full p-2 text-sm md:text-md text-center"></div>
+        <div class="searchbox  justify-center items-center w-full md:max-w-xs  ">
+          <input type="text" name="search" id="search" placeholder="search for task by name .." class=" input input-search input-bordered md:w-max-w-xl text-xs md:text-md rounded-md border-2  input-secondary" >
+        </div>
+        <div class="inputSection items-center justify-between mt-5 ">
+          <input
+            type="text"
+            name="todotype"
+            id="todo"
+            class="input input-bordered border-2 w-full  text-xs md:text-md input-secondary rounded-md  "
+            placeholder="Type Your Task .. "
+          />
+          <input
+            type="date"
+            name="tododate"
+            id="tododate"
+            class="input  input-bordered border-2 w-full  text-xs md:text-md input-secondary scedule-date rounded-md  "
+          />
+          
+          <i class="bx bx-plus bx-sm bg-secondary p-2 addtask rounded-md bx-xs md:bx-md"></i>
+        </div>
+      </header>
+      <!-- filter todo -->
+      <div class="todo-filter w-full my-5">
+        <div class="filterStatusTasks dropdown  ">
+          <label tabindex="0" class="btn  md:w-full text-xs btn-sm md:btn-md">filter</label>
+          <ul class="dropdown-content menu p-2 shadow rounded-box  bg-base-100 text-sm md:text-md" tabindex="0">
+            <li onclick="filterToDos('all') " > <a> All </a> </li>
+            <li onclick="filterToDos('pending') "> <a> Pending </a> </li>
+            <li onclick="filterToDos('completed')  "  > <a> Completed </a> </li>
+          </ul>
+        </div>
+        <div class="clearAll btn btn-secondary text-xs btn-sm md:btn-md ">Delete All</div>
+      </div>
+      <div class="search-box w-full bg-sky-400 aspect-square "></div>
+      <!-- toto box container -->
+      <table class=" table-fixed w-full  ">
+        <thead class="text-xs   md:text-md">
+          <th data-column="task" data-order="desc" >Task  </th>
+          <th data-column="due date" data-order="desc" >DueDate  </th>
+          <th data-column="status" data-order="desc">Status </th>
+          <th data-column="action" data-order="desc" >Action </th>
+          <th title="sort" ><p class="font-md lowercase cursor-pointer sort ">sort</p></th>
+        </thead>
+        <!-- dynamic  -->
+        <tbody class="tasks" data-template ></tbody>
+      </table>
+    </div>
+    <!-- html theme -->
+    <div class="theme-switcher ">
+      <div class="dropdown dropdown-left w-20 md:w-full">
+        <label class="btn" tabindex="0">
+          <i class="bx bxs-palette bx-sm md:bx-md "></i>
+        </label>
+        <ul
+          class="dropdown-content menu p-2 shadow bg-base-100 w-52 bg-light text-dark rounded-box"
+          tabindex="0"
+        >
+          <li class="theme-item" theme="bumblebee">Bumblebee</li>
+          <li class="theme-item" theme="dark">Dark</li>
+          <li class="theme-item" theme="light">Light</li>
+          <li class="theme-item" theme="halloween">Halloween</li>
+          <li class="theme-item" theme="cupcake">Cupcake</li>
+          <li class="theme-item" theme="night">Night</li>
+          <li class="theme-item" theme="forest">forest</li>
+        </ul>
+      </div>
+    </div>
+    <script src="JS/script.js" defer ></script>
+    <script src="JS/theme-switcher.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </body>
+</html>
