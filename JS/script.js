@@ -8,7 +8,7 @@ const search = document.querySelector(" .searchtask"),
   input = document.querySelector("#todo"),
   sceduleDate = document.querySelector(".scedule-date"),
   searchInput = document.querySelector(".input-search"),
-  tasks_container = document.querySelector(".tasks");
+  tasks_container = document.querySelector(" .tasks");
   
 let tasks = [];
 const getTasks = localStorage.getItem("task") || '';
@@ -39,8 +39,8 @@ searchTaskByName()
 class Task {
   static displayTask() {
     tasks_container.innerHTML = "";
-    if (tasks_container.length == 0) {
-      tasks_container.innerHTML = `<tr> <td class="text-center " colspan="5" > No task found </td> </tr>`;
+    if (tasks.length === 0) {
+      tasks_container.innerHTML = `<tr> <td class="text-center my-3 font-bold " colspan="5" > No task found </td> </tr>`;
       return;
     }
     tasks.forEach((task) => {
@@ -55,7 +55,7 @@ class Task {
                         })" >
                             <i class="bx bx-check bx-xs md:bx-md text-success rounded-sm bg-rose-100 "></i>
                         </button>
-                        <button class="edit  btn-xs md:btn-md " title="update" onclick="Task.edit(${
+                        <button class="edit  btn-xs md:btn-md " title="edit" onclick="Task.edit(${
                           task.id
                         })" >
                             <i class="bx bx-edit-alt text-lime-400 bx-xs md:bx-md"></i>
@@ -75,10 +75,10 @@ class Task {
   // show alertMsg message
   static showAlertMessage(Message, alertPlace) {
     const alertMsg = document.querySelector(alertPlace);
-    let alertBox = `<div class = " shadow-lg alert mb-5 w-full text-light bg-success " >${Message}</div>`;
+    let alertBox = `<div class = " shadow-lg alert w-auto text-light bg-success flex justify-center align-middle" >
+      <p class="font-bold"> ${Message} </p>
+    </div>`;
     alertMsg.innerHTML = alertBox;
-    // alertMsg.classList.add("show");
-    // alertMsg.classList.remove("hide");
     setTimeout(() => {
       alertMsg.classList.add("show");
       setTimeout(() => {
@@ -201,7 +201,7 @@ $(".addtask").on('click', () => {
     Task.create(input_value);
     Task.displayTask();
   } else {
-    Task.showAlertMessage("no task added ", ".alertMsg")
+    Task.showAlertMessage("input filed is empty ", ".alertMsg")
   }
 })
 

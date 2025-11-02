@@ -13,5 +13,3 @@ educational application
 // theme
 
 this app is created with html ,css , tailwind , js and jquery 
-
-created date : from 11 Oct 2023 to 22 Oct 2023
